@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\xampp\htdocs\news\public/../application/admin\view\category\list.html";i:1555892787;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555892253;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\xampp\htdocs\news\public/../application/admin\view\admin\list.html";i:1555891003;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555833700;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555892253;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -24,7 +24,6 @@
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <!--/meta 作为公共模版分离出去-->
-    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css" />
     
     <title><?php echo (isset($title) && ($title !== '')?$title:"新闻后台管理系统"); ?></title>
     <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
@@ -172,69 +171,62 @@
 <section class="Hui-article-box">
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
 		<span class="c-gray en">&gt;</span>
-		分类管理
+		管理员管理
 		<span class="c-gray en">&gt;</span>
-		分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+		管理员列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="text-c"> 日期范围：
 				<input type="text" name="start_time" id="countTimestart" onfocus="selecttime(1)" value="<?php echo (isset($start_time) && ($start_time !== '')?$start_time:''); ?>" size="17" class="date" readonly>
 				-
 				<input type="text" name="end_time" id="countTimeend" onfocus="selecttime(2)" value="<?php echo (isset($end_time) && ($end_time !== '')?$end_time:''); ?>" size="17"  class="date" readonly>
-				<input type="text" class="input-text" style="width:250px" placeholder="输入分类名称" id="" name="">
-				<button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜分类</button>
+				<input type="text" class="input-text" style="width:250px" placeholder="输入管理员名称" id="" name="">
+				<button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20">
 				<span class="l">
 					<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-					<a href="javascript:;" onclick="add('添加分类','<?php echo url('admin/category/create'); ?>','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加分类</a>
+					<a href="javascript:;" onclick="add('添加管理员','<?php echo url('admin/admin/save'); ?>','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加管理员</a>
 				</span>
 				<span class="r">共有数据：<strong>54</strong> 条</span>
 			</div>
 			<table class="table table-border table-bordered table-bg">
 				<thead>
 				<tr>
-					<th scope="col" colspan="9">分类列表</th>
+					<th scope="col" colspan="9">员工列表</th>
 				</tr>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
 					<th width="40">ID</th>
-					<th width="40">排序</th>
-					<th width="90">分类名称</th>
-					<th width="100">状态</th>
+					<th width="150">登录名</th>
+					<th width="90">手机</th>
+					<th width="150">邮箱</th>
+					<th>角色</th>
+					<th width="130">加入时间</th>
+					<th width="100">是否已启用</th>
 					<th width="100">操作</th>
 				</tr>
 				</thead>
 				<tbody>
-				<?php if(is_array($categorys) || $categorys instanceof \think\Collection || $categorys instanceof \think\Paginator): $i = 0; $__LIST__ = $categorys;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+
 				<tr class="text-c">
 					<td><input type="checkbox" value="1" name=""></td>
-					<td><?php echo $vo['id']; ?></td>
-					<td><input type="text" name="sort" value="<?php echo $vo['sort']; ?>" style="width: 30px;text-align: center;"></td>
-					<td><?php echo $vo['cate_name']; ?></td>
-					<td class="td-status">
-						<?php if($vo['status'] == 1): ?>
-						<span class="label label-success radius">已启用</span>
-						<?php elseif($vo['status'] == 0): ?>
-						<span class="label label-danger radius">停用</span>
-						<?php endif; ?>
-					</td>
+					<td>1</td>
+					<td>admin</td>
+					<td>13000000000</td>
+					<td>admin@mail.com</td>
+					<td>超级管理员</td>
+					<td>2014-6-11 11:11:42</td>
+					<td class="td-status"><span class="label label-success radius">已启用</span></td>
 					<td class="td-manage">
-						<?php if($vo['status'] == 1): ?>
 						<a style="text-decoration:none" onClick="stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>
-						<?php elseif($vo['status'] == 0): ?>
-						<a style="text-decoration:none" onClick="start(this,'10001')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe631;</i></a>
-						<?php endif; ?>
-						<a title="编辑" href="javascript:;" onclick="edit('分类编辑','<?php echo url('admin/category/edit',['id' => $vo['id']]); ?>','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-						<a title="删除" href="<?php echo url('admin/category/delete',['id' => $vo['id']]); ?>" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						<a title="编辑" href="javascript:;" onclick="edit('管理员编辑','admin-add.html','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+						<a title="删除" href="javascript:;" onclick="del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 					</td>
 				</tr>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
+
 				</tbody>
 			</table>
-			<div style="text-align: right;">
-				<?php echo $categorys->render(); ?>
-			</div>
 		</article>
 	</div>
 </section>

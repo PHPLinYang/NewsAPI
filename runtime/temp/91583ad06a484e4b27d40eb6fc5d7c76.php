@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\xampp\htdocs\news\public/../application/admin\view\category\list.html";i:1555892787;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555892253;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:73:"D:\xampp\htdocs\news\public/../application/admin\view\auth_rule\list.html";i:1555894657;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555895586;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -84,6 +84,7 @@
             <dd>
                 <ul>
                     <li><a href=<?php echo url('category/index'); ?> title="资讯管理">分类管理</a></li>
+                    <li><a href=<?php echo url('article/index'); ?> title="资讯管理">文章管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -172,46 +173,43 @@
 <section class="Hui-article-box">
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
 		<span class="c-gray en">&gt;</span>
-		分类管理
+		权限管理
 		<span class="c-gray en">&gt;</span>
-		分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+		权限列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
-			<div class="text-c"> 日期范围：
-				<input type="text" name="start_time" id="countTimestart" onfocus="selecttime(1)" value="<?php echo (isset($start_time) && ($start_time !== '')?$start_time:''); ?>" size="17" class="date" readonly>
-				-
-				<input type="text" name="end_time" id="countTimeend" onfocus="selecttime(2)" value="<?php echo (isset($end_time) && ($end_time !== '')?$end_time:''); ?>" size="17"  class="date" readonly>
-				<input type="text" class="input-text" style="width:250px" placeholder="输入分类名称" id="" name="">
-				<button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜分类</button>
+			<div class="text-c">
+				<input type="text" class="input-text" style="width:250px" placeholder="输入权限名称" id="" name="">
+				<button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜权限</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20">
 				<span class="l">
 					<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-					<a href="javascript:;" onclick="add('添加分类','<?php echo url('admin/category/create'); ?>','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加分类</a>
+					<a href="javascript:;" onclick="add('添加权限','<?php echo url('admin/auth_rule/save'); ?>','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加权限</a>
 				</span>
 				<span class="r">共有数据：<strong>54</strong> 条</span>
 			</div>
 			<table class="table table-border table-bordered table-bg">
 				<thead>
 				<tr>
-					<th scope="col" colspan="9">分类列表</th>
+					<th scope="col" colspan="9">员工列表</th>
 				</tr>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
 					<th width="40">ID</th>
-					<th width="40">排序</th>
-					<th width="90">分类名称</th>
-					<th width="100">状态</th>
-					<th width="100">操作</th>
+					<th width="150">名称</th>
+					<th width="90">规则</th>
+					<th width="40">状态</th>
+					<th width="120">操作</th>
 				</tr>
 				</thead>
 				<tbody>
-				<?php if(is_array($categorys) || $categorys instanceof \think\Collection || $categorys instanceof \think\Paginator): $i = 0; $__LIST__ = $categorys;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+				<?php if(is_array($rules) || $rules instanceof \think\Collection || $rules instanceof \think\Paginator): $i = 0; $__LIST__ = $rules;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 				<tr class="text-c">
 					<td><input type="checkbox" value="1" name=""></td>
 					<td><?php echo $vo['id']; ?></td>
-					<td><input type="text" name="sort" value="<?php echo $vo['sort']; ?>" style="width: 30px;text-align: center;"></td>
-					<td><?php echo $vo['cate_name']; ?></td>
+					<td><?php echo $vo['title']; ?></td>
+					<td><?php echo $vo['name']; ?></td>
 					<td class="td-status">
 						<?php if($vo['status'] == 1): ?>
 						<span class="label label-success radius">已启用</span>
@@ -220,20 +218,16 @@
 						<?php endif; ?>
 					</td>
 					<td class="td-manage">
-						<?php if($vo['status'] == 1): ?>
 						<a style="text-decoration:none" onClick="stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>
-						<?php elseif($vo['status'] == 0): ?>
-						<a style="text-decoration:none" onClick="start(this,'10001')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe631;</i></a>
-						<?php endif; ?>
-						<a title="编辑" href="javascript:;" onclick="edit('分类编辑','<?php echo url('admin/category/edit',['id' => $vo['id']]); ?>','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-						<a title="删除" href="<?php echo url('admin/category/delete',['id' => $vo['id']]); ?>" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						<a title="编辑" href="javascript:;" onclick="edit('管理员编辑','<?php echo url('admin/auth_rule/edit',['id' => $vo['id']]); ?>','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+						<a title="删除" href="<?php echo url('admin/auth_rule/delete',['id' => $vo['id']]); ?>" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 					</td>
 				</tr>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
 			</table>
 			<div style="text-align: right;">
-				<?php echo $categorys->render(); ?>
+				<?php echo $rules->render(); ?>
 			</div>
 		</article>
 	</div>
@@ -248,7 +242,6 @@
 <!--/_footer /作为公共模版分离出去-->
 
 
-<script type="text/javascript" src="/static/admin/hui/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="/static/admin/hui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/static/admin/hui/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript" src="/static/admin/js/common.js"></script>

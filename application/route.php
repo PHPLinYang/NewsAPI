@@ -9,3 +9,7 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 use think\Route;
+
+Route::get('api/:version/category/[:id]','api/:version.category/index');
+Route::resource('api/:version/user','api/:version.user');
+Route::resource('api/test','api/test');

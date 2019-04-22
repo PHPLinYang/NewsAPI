@@ -10,3 +10,13 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+//api数据返回
+function show($code,$msg,$data = [],$httpCode = 200)
+{
+    $data = [
+        'code' => $code,
+        'msg' => $msg,
+        'data' => $data
+    ];
+    return json($data,$httpCode);
+}
