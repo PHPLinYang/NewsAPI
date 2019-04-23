@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:69:"D:\xampp\htdocs\news\public/../application/admin\view\admin\list.html";i:1555891003;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555895586;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"D:\xampp\htdocs\news\public/../application/admin\view\index\index.html";i:1555831980;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555895586;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -171,65 +171,179 @@
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
-		<span class="c-gray en">&gt;</span>
-		管理员管理
-		<span class="c-gray en">&gt;</span>
-		管理员列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a>
+		<span class="c-999 en">&gt;</span>
+		<span class="c-666">我的桌面</span>
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
-			<div class="text-c"> 日期范围：
-				<input type="text" name="start_time" id="countTimestart" onfocus="selecttime(1)" value="<?php echo (isset($start_time) && ($start_time !== '')?$start_time:''); ?>" size="17" class="date" readonly>
-				-
-				<input type="text" name="end_time" id="countTimeend" onfocus="selecttime(2)" value="<?php echo (isset($end_time) && ($end_time !== '')?$end_time:''); ?>" size="17"  class="date" readonly>
-				<input type="text" class="input-text" style="width:250px" placeholder="输入管理员名称" id="" name="">
-				<button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20">
-				<span class="l">
-					<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-					<a href="javascript:;" onclick="add('添加管理员','<?php echo url('admin/admin/save'); ?>','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加管理员</a>
-				</span>
-				<span class="r">共有数据：<strong>54</strong> 条</span>
-			</div>
+			<p class="f-20 text-success">欢迎使用H-ui.admin
+				<span class="f-14">v2.3</span>
+				后台模版！</p>
+			<p>登录次数：18 </p>
+			<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
 			<table class="table table-border table-bordered table-bg">
 				<thead>
 				<tr>
-					<th scope="col" colspan="9">员工列表</th>
+					<th colspan="7" scope="col">信息统计</th>
 				</tr>
 				<tr class="text-c">
-					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th width="40">ID</th>
-					<th width="150">登录名</th>
-					<th width="90">手机</th>
-					<th width="150">邮箱</th>
-					<th>角色</th>
-					<th width="130">加入时间</th>
-					<th width="100">是否已启用</th>
-					<th width="100">操作</th>
+					<th>统计</th>
+					<th>资讯库</th>
+					<th>图片库</th>
+					<th>产品库</th>
+					<th>用户</th>
+					<th>管理员</th>
 				</tr>
 				</thead>
 				<tbody>
-
 				<tr class="text-c">
-					<td><input type="checkbox" value="1" name=""></td>
-					<td>1</td>
-					<td>admin</td>
-					<td>13000000000</td>
-					<td>admin@mail.com</td>
-					<td>超级管理员</td>
-					<td>2014-6-11 11:11:42</td>
-					<td class="td-status"><span class="label label-success radius">已启用</span></td>
-					<td class="td-manage">
-						<a style="text-decoration:none" onClick="stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>
-						<a title="编辑" href="javascript:;" onclick="edit('管理员编辑','admin-add.html','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-						<a title="删除" href="javascript:;" onclick="del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
-					</td>
+					<td>总数</td>
+					<td>92</td>
+					<td>9</td>
+					<td>0</td>
+					<td>8</td>
+					<td>20</td>
 				</tr>
-
+				<tr class="text-c">
+					<td>今日</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="text-c">
+					<td>昨日</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="text-c">
+					<td>本周</td>
+					<td>2</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				<tr class="text-c">
+					<td>本月</td>
+					<td>2</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+				</tr>
+				</tbody>
+			</table>
+			<table class="table table-border table-bordered table-bg mt-20">
+				<thead>
+				<tr>
+					<th colspan="2" scope="col">服务器信息</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th width="30%">服务器计算机名</th>
+					<td><span id="lbServerName">http://127.0.0.1/</span></td>
+				</tr>
+				<tr>
+					<td>服务器IP地址</td>
+					<td>192.168.1.1</td>
+				</tr>
+				<tr>
+					<td>服务器域名</td>
+					<td>www.h-ui.net</td>
+				</tr>
+				<tr>
+					<td>服务器端口 </td>
+					<td>80</td>
+				</tr>
+				<tr>
+					<td>服务器IIS版本 </td>
+					<td>Microsoft-IIS/6.0</td>
+				</tr>
+				<tr>
+					<td>本文件所在文件夹 </td>
+					<td>D:\WebSite\HanXiPuTai.com\XinYiCMS.Web\</td>
+				</tr>
+				<tr>
+					<td>服务器操作系统 </td>
+					<td>Microsoft Windows NT 5.2.3790 Service Pack 2</td>
+				</tr>
+				<tr>
+					<td>系统所在文件夹 </td>
+					<td>C:\WINDOWS\system32</td>
+				</tr>
+				<tr>
+					<td>服务器脚本超时时间 </td>
+					<td>30000秒</td>
+				</tr>
+				<tr>
+					<td>服务器的语言种类 </td>
+					<td>Chinese (People's Republic of China)</td>
+				</tr>
+				<tr>
+					<td>.NET Framework 版本 </td>
+					<td>2.050727.3655</td>
+				</tr>
+				<tr>
+					<td>服务器当前时间 </td>
+					<td>2014-6-14 12:06:23</td>
+				</tr>
+				<tr>
+					<td>服务器IE版本 </td>
+					<td>6.0000</td>
+				</tr>
+				<tr>
+					<td>服务器上次启动到现在已运行 </td>
+					<td>7210分钟</td>
+				</tr>
+				<tr>
+					<td>逻辑驱动器 </td>
+					<td>C:\D:\</td>
+				</tr>
+				<tr>
+					<td>CPU 总数 </td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>CPU 类型 </td>
+					<td>x86 Family 6 Model 42 Stepping 1, GenuineIntel</td>
+				</tr>
+				<tr>
+					<td>虚拟内存 </td>
+					<td>52480M</td>
+				</tr>
+				<tr>
+					<td>当前程序占用内存 </td>
+					<td>3.29M</td>
+				</tr>
+				<tr>
+					<td>Asp.net所占内存 </td>
+					<td>51.46M</td>
+				</tr>
+				<tr>
+					<td>当前Session数量 </td>
+					<td>8</td>
+				</tr>
+				<tr>
+					<td>当前SessionID </td>
+					<td>gznhpwmp34004345jz2q3l45</td>
+				</tr>
+				<tr>
+					<td>当前系统用户名 </td>
+					<td>NETWORK SERVICE</td>
+				</tr>
 				</tbody>
 			</table>
 		</article>
+		<footer class="footer">
+			<p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br> Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+		</footer>
 	</div>
 </section>
 
@@ -241,11 +355,6 @@
 <script type="text/javascript" src="/static/admin/hui/static/h-ui.admin/js/H-ui.admin.page.js"></script>
 <!--/_footer /作为公共模版分离出去-->
 
-
-<script type="text/javascript" src="/static/admin/hui/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="/static/admin/hui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="/static/admin/hui/lib/laypage/1.2/laypage.js"></script>
-<script type="text/javascript" src="/static/admin/js/common.js"></script>
 
 </body>
 </html>

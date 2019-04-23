@@ -26,6 +26,7 @@ class Category extends Base
         }else{
             $categorys = model('Category')->where('status',1)
                 ->field('id,cate_name')
+                ->limit(5)
                 ->select();
             $result[] = [
                 'id' => 0,

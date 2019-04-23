@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\xampp\htdocs\news\public/../application/admin\view\category\list.html";i:1555892787;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555892253;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\xampp\htdocs\news\public/../application/admin\view\category\list.html";i:1555892787;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555895586;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -84,6 +84,7 @@
             <dd>
                 <ul>
                     <li><a href=<?php echo url('category/index'); ?> title="资讯管理">分类管理</a></li>
+                    <li><a href=<?php echo url('article/index'); ?> title="资讯管理">文章管理</a></li>
                 </ul>
             </dd>
         </dl>
