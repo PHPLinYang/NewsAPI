@@ -15,7 +15,7 @@ class Category extends Controller
     public function index()
     {
         //获取分类数据
-        $categorys = model('Category')->order('sort')->paginate(5);
+        $categorys = model('Category')->where('status','>',0)->order('sort')->paginate(5);
 
         $this->assign('categorys',$categorys);
         return $this->fetch('list');

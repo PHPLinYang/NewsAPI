@@ -41,15 +41,9 @@
 				<tr class="text-c">
 					<td><input type="checkbox" value="1" name=""></td>
 					<td>{$vo.id}</td>
-					<td><input type="text" name="sort" value="{$vo.sort}" style="width: 30px;text-align: center;"></td>
+					<td><input type="text" class="list_order" name="sort" value="{$vo.sort}" attr_id="{$vo.id}" style="width: 30px;text-align: center;"></td>
 					<td>{$vo.cate_name}</td>
-					<td class="td-status">
-						{if condition = "$vo.status eq 1"}
-						<span class="label label-success radius">已启用</span>
-						{elseif condition = "$vo.status eq 0"}
-						<span class="label label-danger radius">停用</span>
-						{/if}
-					</td>
+					<td class="td-status">{$vo.status}</td>
 					<td class="td-manage">
 						{if condition = "$vo.status eq 1"}
 						<a style="text-decoration:none" onClick="stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>

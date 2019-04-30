@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\xampp\htdocs\news\public/../application/admin\view\category\list.html";i:1555892787;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1555895586;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"D:\xampp\htdocs\news\public/../application/admin\view\category\list.html";i:1556604159;s:60:"D:\xampp\htdocs\news\application\admin\view\public\base.html";i:1555892806;s:62:"D:\xampp\htdocs\news\application\admin\view\public\header.html";i:1555832363;s:61:"D:\xampp\htdocs\news\application\admin\view\public\aside.html";i:1556592801;}*/ ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -96,25 +96,6 @@
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-product">
-            <dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="product-brand.html" title="品牌管理">品牌管理</a></li>
-                    <li><a href="product-category.html" title="分类管理">分类管理</a></li>
-                    <li><a href="product-list.html" title="产品管理">产品管理</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-comments">
-            <dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="http://h-ui.duoshuo.com/admin/" title="评论列表">评论列表</a></li>
-                    <li><a href="feedback-list.html" title="意见反馈">意见反馈</a></li>
-                </ul>
-            </dd>
-        </dl>
         <dl id="menu-member">
             <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
@@ -136,20 +117,6 @@
                     <li><a href="<?php echo url('admin/auth_rule/index'); ?>" title="权限管理">权限管理</a></li>
                     <li><a href="<?php echo url('admin/permission/index'); ?>" title="角色管理">角色管理</a></li>
                     <li><a href="<?php echo url('admin/admin/index'); ?>" title="管理员列表">管理员列表</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-tongji">
-            <dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="charts-1.html" title="折线图">折线图</a></li>
-                    <li><a href="charts-2.html" title="时间轴折线图">时间轴折线图</a></li>
-                    <li><a href="charts-3.html" title="区域图">区域图</a></li>
-                    <li><a href="charts-4.html" title="柱状图">柱状图</a></li>
-                    <li><a href="charts-5.html" title="饼状图">饼状图</a></li>
-                    <li><a href="charts-6.html" title="3D柱状图">3D柱状图</a></li>
-                    <li><a href="charts-7.html" title="3D饼状图">3D饼状图</a></li>
                 </ul>
             </dd>
         </dl>
@@ -211,15 +178,9 @@
 				<tr class="text-c">
 					<td><input type="checkbox" value="1" name=""></td>
 					<td><?php echo $vo['id']; ?></td>
-					<td><input type="text" name="sort" value="<?php echo $vo['sort']; ?>" style="width: 30px;text-align: center;"></td>
+					<td><input type="text" class="list_order" name="sort" value="<?php echo $vo['sort']; ?>" attr_id="<?php echo $vo['id']; ?>" style="width: 30px;text-align: center;"></td>
 					<td><?php echo $vo['cate_name']; ?></td>
-					<td class="td-status">
-						<?php if($vo['status'] == 1): ?>
-						<span class="label label-success radius">已启用</span>
-						<?php elseif($vo['status'] == 0): ?>
-						<span class="label label-danger radius">停用</span>
-						<?php endif; ?>
-					</td>
+					<td class="td-status"><?php echo $vo['status']; ?></td>
 					<td class="td-manage">
 						<?php if($vo['status'] == 1): ?>
 						<a style="text-decoration:none" onClick="stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>

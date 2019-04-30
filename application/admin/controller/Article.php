@@ -12,11 +12,25 @@ class Article extends Base
      */
     public function index()
     {
-        //获取规则数据
-        $rules = model('Article')->where('status',1)->paginate();
+        //获取数据
+        $articles = model('Article')->where('status','>',0)->paginate(5);
 
-        $this->assign('rules',$rules);
-        return $this->fetch('list');
+        return $this->fetch('list',[
+            'articles' => $articles,
+        ]);
+    }
+
+    /**
+     * 显示创建资源表单页.
+     *
+     * @return \think\Response
+     */
+    public function create()
+    {
+        $categorys = model('Category')->where('status',1)->select();
+
+        $this->assign('categorys',$categorys);
+        return $this->fetch('add');
     }
 
     /**
@@ -26,7 +40,11 @@ class Article extends Base
     public function save()
     {
         if(request()->isPost()){
-            $res = model('Article')->add(input('post.'));
+            try {
+                $res = model('Article')->add(input('post.'));
+            }catch (\Exception $e){
+                $this->error($e->getMessage());
+            }
             if($res['code'] == 0){
                 $this->error($res['msg']);
             }else{

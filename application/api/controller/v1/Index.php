@@ -2,6 +2,7 @@
 
 namespace app\api\controller\v1;
 use app\api\controller\Base;
+use think\Db;
 
 
 class Index extends Base
@@ -17,7 +18,10 @@ class Index extends Base
         //获取首页轮播图4条
         $banners = config('api.banner');
         //推荐位文章列表
-        $articles = config('api.article');
+        $articles = Db::name('article')
+            ->field('id,title,author,create_time')
+            ->order('create_time desc')
+            ->select();
         $data = [
             'banner' => $banners,
             'article' => $articles
